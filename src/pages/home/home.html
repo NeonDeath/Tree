@@ -1,14 +1,32 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar>
+    <ion-buttons start> 
+      <button ion-button icon-only (click) = "logout()">
+        <ion-icon name = "log-out"></ion-icon>
+      </button> 
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Árboles
     </ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getPicture()">
+        <ion-icon name= "camera"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-list>
+  <ion-item *ngFor = "let item of items">
+    <ion-thumbnail item-start>
+      <img src = "{{ item.url }}">
+    </ion-thumbnail>
+    <h2>Tipo de árbol: {{ item.arbol}} </h2>
+    <h2>Latitud: {{latitud}} , Longitud: {{longitud}}</h2>
+    <h2>Tamaño de copa: {{ item.copa}} m </h2>
+    <h2>Tamaño de tronco: {{ item.tronco}} m </h2>
+  </ion-item>
+</ion-list>
+
 </ion-content>
