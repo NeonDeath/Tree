@@ -76,9 +76,9 @@ export class AgregarPage {
 
     this.db.collection('tree').add(tree)
     .then(ref => {
-     // let nombre = ref.id;
+      let nombre = ref.id;
         
-      let uploadTask = this.storage.ref('trees/' + 'foto' + 'jpg').putString(this.imagen, 'data_url');
+      let uploadTask = this.storage.ref('trees/' + nombre + 'jpg').putString(this.imagen, 'data_url');
 
       uploadTask.then( exito =>{
         loading.dismiss();
